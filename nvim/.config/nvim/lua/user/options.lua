@@ -6,6 +6,8 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 
+vim.lsp.set_log_level("off") -- vim.lsp.set_log_level("debug").
+
 -- -- Remap caps lock to escape.
 -- vim.api.nvim_create_autocmd("VimEnter", {
 -- 	pattern = "*",
@@ -20,7 +22,7 @@ vim.g.loaded_perl_provider = 0
 local options = {
 	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-	cmdheight = 2, -- more space in the neovim command line for displaying messages
+	cmdheight = 1, -- more space in the neovim command line for displaying messages
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 0, -- so that `` is visible in markdown files
 	fileencoding = "utf-8", -- the encoding written to a file
@@ -54,7 +56,7 @@ local options = {
 	whichwrap = "<,>,[,],h,l", -- move to next/prev line if the cursor is at the last/first line character
 }
 
-vim.opt.shortmess:append("c")
+vim.opt.shortmess:append("cI")
 
 for k, v in pairs(options) do
 	vim.opt[k] = v

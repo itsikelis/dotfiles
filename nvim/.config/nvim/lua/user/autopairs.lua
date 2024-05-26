@@ -6,11 +6,11 @@ end
 
 npairs.setup({
 	check_ts = true, -- Check for treesitter.
-	ts_config = {
-		lua = { "string", "source" },
-		javascript = { "string", "template_string" },
-		java = false,
-	},
+	-- ts_config = {
+	-- 	lua = { "string", "source" },
+	-- 	javascript = { "string", "template_string" },
+	-- 	java = false,
+	-- },
 	disable_filetype = { "TelescopePrompt", "spectre_panel" },
 	disable_in_macro = true, -- Disable when recording or executing a macro.
 	disable_in_visualblock = false, -- Disable when insert after visual block mode.
