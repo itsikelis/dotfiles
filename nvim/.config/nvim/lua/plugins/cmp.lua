@@ -9,10 +9,10 @@ local M = {
         --      "hrsh7th/cmp-emoji",
         --      event = "InsertEnter",
         --    },
-        {
-            "hrsh7th/cmp-buffer",
-            event = "InsertEnter",
-        },
+        -- {
+        --     "hrsh7th/cmp-buffer",
+        --     event = "InsertEnter",
+        -- },
         {
             "hrsh7th/cmp-path",
             event = "InsertEnter",
@@ -121,7 +121,7 @@ function M.config()
         sources = {
             { name = "nvim_lsp" },
             { name = "luasnip" },
-            { name = "buffer" },
+            -- { name = "buffer" },
             { name = "path" },
         },
         confirm_opts = {
