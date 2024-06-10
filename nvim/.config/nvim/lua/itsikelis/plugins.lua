@@ -19,7 +19,7 @@ require("lazy").setup({
         colorscheme = { "darkplus", "default" },
     },
     ui = {
-        border = "rounded",
+        border = "none",
     },
     change_detection = {
         enabled = true,

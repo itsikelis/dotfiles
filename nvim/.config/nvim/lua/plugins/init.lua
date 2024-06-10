@@ -20,6 +20,7 @@ spec("plugins.bufferline")
 spec("plugins.lualine")
 
 spec("plugins.telescope")
+spec("plugins.which-key")
 
 -- Extras
 spec("plugins.autopairs")
