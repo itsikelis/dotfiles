@@ -67,6 +67,9 @@ keymap("v", "p", '"_dP', opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+vim.cmd([[:amenu 10.100 mousemenu.Goto\ Definition <cmd>lua vim.lsp.buf.definition()<CR>]])
+vim.cmd([[:amenu 10.110 mousemenu.References <cmd>lua vim.lsp.buf.references()<CR>]])
+
 --------------
 -- Terminal --
 --------------
@@ -84,10 +87,10 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Open Telescope file finder.
 keymap(
-	"n",
-	"<leader>t",
-	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-	opts
+    "n",
+    "<leader>t",
+    "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+    opts
 )
 -- Open Telescope live grep.
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find()<cr>", opts)

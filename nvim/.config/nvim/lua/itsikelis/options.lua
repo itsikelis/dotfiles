@@ -8,17 +8,6 @@ vim.g.loaded_perl_provider = 0
 
 vim.lsp.set_log_level("off") -- vim.lsp.set_log_level("debug").
 
--- -- Remap caps lock to escape.
--- vim.api.nvim_create_autocmd("VimEnter", {
--- 	pattern = "*",
--- 	command = "!setxkbmap -option ctrl:nocaps",
--- })
---
--- vim.api.nvim_create_autocmd("VimLeave", {
--- 	pattern = "*",
--- 	command = "!setxkbmap -option",
--- })
-
 local options = {
 	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
