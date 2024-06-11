@@ -28,7 +28,7 @@ local function lsp_keymaps(bufnr)
     -- lsp_keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
-M.on_attach = function(client, bufnr)
+M.on_attach = function(_, bufnr)
     lsp_keymaps(bufnr)
 end
 

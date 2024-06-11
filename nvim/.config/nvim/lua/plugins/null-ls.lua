@@ -6,15 +6,30 @@ function M.config()
     local null_ls = require("null-ls")
 
     local formatting = null_ls.builtins.formatting
+    local diagnostics = null_ls.builtins.diagnostics
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
     null_ls.setup({
         debug = true,
         sources = {
+            -- Lua
             formatting.stylua,
+            diagnostics.selene,
+            -- C/C++
+            formatting.clang_format,
+            diagnostics.cppcheck,
+            -- CMake
+            formatting.cmake_format,
+            diagnostics.cmake_lint,
+            -- Python
             formatting.black,
-            -- formatting.eslint,
-            -- null_ls.builtins.diagnostics.eslint,
+            diagnostics.pylint,
+            -- Bash
+            formatting.shfmt,
+            -- XML, HTML
+            formatting.tidy,
+            diagnostics.tidy,
+
             null_ls.builtins.completion.spell,
         },
         on_attach = function(client, bufnr)

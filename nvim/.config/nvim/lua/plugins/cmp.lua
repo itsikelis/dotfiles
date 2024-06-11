@@ -51,7 +51,7 @@ function M.config()
     end
 
     local icons = require("itsikelis.icons")
-    local types = require("cmp.types")
+    -- local types = require("cmp.types")
 
     cmp.setup({
         snippet = {
