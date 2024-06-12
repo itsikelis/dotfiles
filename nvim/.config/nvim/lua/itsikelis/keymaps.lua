@@ -78,23 +78,3 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
----------------
---- Plugins ---
----------------
--- Open Lex to the side.
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-
--- Open Telescope file finder.
-keymap(
-    "n",
-    "<leader>t",
-    "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-    opts
-)
--- Open Telescope live grep.
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find()<cr>", opts)
-keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
-
--- Open undotree
-keymap("n", "<leader>u", ":UndotreeToggle<cr><C-w><C-w>", opts)
