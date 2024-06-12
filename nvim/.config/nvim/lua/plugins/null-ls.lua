@@ -16,20 +16,16 @@ function M.config()
             formatting.stylua,
             -- C/C++
             formatting.clang_format,
-            diagnostics.cppcheck,
             -- CMake
             formatting.cmake_format,
             diagnostics.cmake_lint,
             -- Python
             formatting.black,
-            diagnostics.pylint,
+            diagnostics.flake8,
             -- Bash
             formatting.shfmt,
-            -- XML, HTML
-            formatting.tidy,
-            diagnostics.tidy,
             -- Extras
-            null_ls.builtins.completion.spell,
+            -- null_ls.builtins.completion.spell,
         },
         -- Format on write.
         on_attach = function(client, bufnr)

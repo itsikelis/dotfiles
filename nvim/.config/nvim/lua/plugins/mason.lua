@@ -17,13 +17,15 @@ M.lsps = {
 }
 
 M.extras = {
-    -- Linters
-    "luacheck",
-
     -- Formatters
     "stylua",
     "clang-format",
     "black",
+    "shfmt",
+    -- Linters
+    "luacheck",
+    "cmakelint",
+    "flake8",
 }
 
 M.linters = {}
