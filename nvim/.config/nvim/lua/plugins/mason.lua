@@ -6,7 +6,7 @@ local M = {
     },
 }
 
-M.execs = {
+M.lsps = {
     "lua_ls",
     "clangd",
     "cmake",
@@ -15,6 +15,18 @@ M.execs = {
     "jsonls",
     "yamlls",
 }
+
+M.extras = {
+    -- Linters
+    "luacheck",
+
+    -- Formatters
+    "stylua",
+    "clang-format",
+    "black",
+}
+
+M.linters = {}
 
 function M.config()
     require("mason").setup({
@@ -31,9 +43,16 @@ function M.config()
     })
 
     require("mason-lspconfig").setup({
-        ensure_installed = M.execs,
+        ensure_installed = M.lsps,
         automatic_installation = true,
     })
+
+    for _, v in ipairs(M.extras) do
+        if not require("mason-registry").is_installed(v) then
+            local cmd = ":MasonInstall " .. v
+            vim.cmd(cmd)
+        end
+    end
 end
 
 return M
