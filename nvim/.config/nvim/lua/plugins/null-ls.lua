@@ -21,7 +21,6 @@ function M.config()
             diagnostics.cmake_lint,
             -- Python
             formatting.black,
-            diagnostics.flake8,
             -- Bash
             formatting.shfmt,
             -- Extras
