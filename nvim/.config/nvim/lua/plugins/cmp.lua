@@ -129,9 +129,9 @@ function M.config()
         },
         -- Change the order to show upper menu item results first.
         sources = {
-            { name = "nvim_lsp" },
             { name = "luasnip" },
-            -- { name = "buffer" },
+            { name = "nvim_lsp" },
+            { name = "buffer" },
             { name = "path" },
         },
         confirm_opts = {
@@ -146,6 +146,7 @@ function M.config()
             },
             documentation = {
                 border = "none",
+                scrollbar = false,
             },
         },
         experimental = {
