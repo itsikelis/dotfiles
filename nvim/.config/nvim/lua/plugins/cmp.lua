@@ -39,6 +39,9 @@ local M = {
     event = "InsertEnter",
 }
 
+local ELLIPSIS_CHAR = "…"
+local MAX_LABEL_WIDTH = 50
+
 function M.config()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
@@ -106,6 +109,13 @@ function M.config()
         formatting = {
             fields = { "kind", "abbr", "menu" },
             format = function(entry, vim_item)
+                -- Keep a max size
+                local label = vim_item.abbr
+                local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+                if truncated_label ~= label then
+                    vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
+                end
+
                 vim_item.kind = icons.kind[vim_item.kind]
                 vim_item.menu = ({
                     nvim_lsp = "[LSP]",

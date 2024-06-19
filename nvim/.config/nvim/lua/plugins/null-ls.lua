@@ -17,8 +17,8 @@ function M.config()
             -- C/C++
             formatting.clang_format,
             -- CMake
-            formatting.cmake_format,
-            diagnostics.cmake_lint,
+            -- formatting.cmake_format,
+            -- diagnostics.cmake_lint,
             -- Python
             formatting.black,
             -- Bash

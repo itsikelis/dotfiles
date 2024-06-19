@@ -1,11 +1,9 @@
-local M = {}
-
-M.settings = {
-	python = {
-		analysis = {
-			typeCheckingMode = "off",
-		},
-	},
+return {
+    settings = {
+        python = {
+            analysis = {
+                typeCheckingMode = "off",
+            },
+        },
+    }
 }
-
-return M

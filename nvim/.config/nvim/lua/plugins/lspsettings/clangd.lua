@@ -1,16 +1,12 @@
-local M = {}
-
-M.settings = {
+return {
     cmd = {
         "clangd",
         "--compile-commands-dir=build",
         "--header-insertion=never",
         "--clang-tidy",
-        "--function-arg-placeholders",
+        "--function-arg-placeholders=0",
         "--completion-style=bundled",
         -- "--background-index",
         -- "--fallback-style=llvm",
     },
 }
-
-return M
