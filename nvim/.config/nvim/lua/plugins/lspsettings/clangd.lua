@@ -6,6 +6,7 @@ return {
         "--clang-tidy",
         "--function-arg-placeholders=0",
         "--completion-style=bundled",
+        "--offset-encoding=utf-16",
         -- "--background-index",
         -- "--fallback-style=llvm",
     },
