@@ -23,6 +23,8 @@ function M.config()
             formatting.black,
             -- Bash
             formatting.shfmt,
+            -- HTML, CSS, JS, Markdown
+            formatting.prettier,
             -- Extras
             -- null_ls.builtins.completion.spell,
         },
