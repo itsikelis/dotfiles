@@ -28,4 +28,4 @@ spec("plugins.comment")
 spec("plugins.gitsigns")
 spec("plugins.undotree")
 
-require('plugins.lazy')
+require("plugins.lazy")
