@@ -4,35 +4,80 @@ local M = {
 }
 
 function M.config()
-	local opts = {
-		mode = "n",
-		prefix = "",
-		buffer = nil,
-		silent = true,
-		noremap = true,
-		nowait = false,
-		expr = false,
-	}
-
-	local mappings = {
-		["<leader>"] = {
-			g = {
-				name = "+Gitsigns",
-				d = { "<cmd>Gitsigns diffthis<CR>", "Open Diff View" },
-				r = { "<cmd>Gitsigns reset_buffer<CR>", "Reset Buffer" },
-				s = { "<cmd>Gitsigns stage_buffer<CR>", "Stage Buffer" },
-
-				j = { "<cmd>Gitsigns next_hunk<CR>", "Go To Next Hunk" },
-				p = { "<cmd>Gitsigns prev_hunk<CR>", "Go To Previous Hunk" },
-
-				S = { "<cmd>Gitsigns stage_hunk<cr>", "Stage Hunk" },
-				U = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Unstage Hunk" },
-				R = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
-			},
+	local wk = require("which-key")
+	wk.add({
+		{
+			"<leader>g",
+			expr = false,
+			group = "Gitsigns",
+			nowait = false,
+			remap = false,
 		},
-	}
-
-	require("which-key").register(mappings, opts)
+		{
+			"<leader>gR",
+			"<cmd>Gitsigns reset_hunk<cr>",
+			desc = "Reset Hunk",
+			expr = false,
+			nowait = false,
+			remap = false,
+		},
+		{
+			"<leader>gS",
+			"<cmd>Gitsigns stage_hunk<cr>",
+			desc = "Stage Hunk",
+			expr = false,
+			nowait = false,
+			remap = false,
+		},
+		{
+			"<leader>gU",
+			"<cmd>Gitsigns undo_stage_hunk<cr>",
+			desc = "Unstage Hunk",
+			expr = false,
+			nowait = false,
+			remap = false,
+		},
+		{
+			"<leader>gd",
+			"<cmd>Gitsigns diffthis<CR>",
+			desc = "Open Diff View",
+			expr = false,
+			nowait = false,
+			remap = false,
+		},
+		{
+			"<leader>gj",
+			"<cmd>Gitsigns next_hunk<CR>",
+			desc = "Go To Next Hunk",
+			expr = false,
+			nowait = false,
+			remap = false,
+		},
+		{
+			"<leader>gp",
+			"<cmd>Gitsigns prev_hunk<CR>",
+			desc = "Go To Previous Hunk",
+			expr = false,
+			nowait = false,
+			remap = false,
+		},
+		{
+			"<leader>gr",
+			"<cmd>Gitsigns reset_buffer<CR>",
+			desc = "Reset Buffer",
+			expr = false,
+			nowait = false,
+			remap = false,
+		},
+		{
+			"<leader>gs",
+			"<cmd>Gitsigns stage_buffer<CR>",
+			desc = "Stage Buffer",
+			expr = false,
+			nowait = false,
+			remap = false,
+		},
+	})
 
 	require("gitsigns").setup({
 		signs = {

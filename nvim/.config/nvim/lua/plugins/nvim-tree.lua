@@ -5,21 +5,17 @@ local M = {
 }
 
 function M.config()
-	local opts = {
-		mode = "n",
-		prefix = "",
-		buffer = nil,
-		silent = true,
-		noremap = true,
-		nowait = false,
-		expr = false,
-	}
-
-	local mappings = {
-		["<leader>e"] = { "<cmd>NvimTreeToggle<cr>", "Toggle File Tree" },
-	}
-
-	require("which-key").register(mappings, opts)
+	local wk = require("which-key")
+	wk.add({
+		{
+			"<leader>e",
+			"<cmd>NvimTreeToggle<cr>",
+			desc = "Toggle File Tree",
+			expr = false,
+			nowait = false,
+			remap = false,
+		},
+	})
 
 	require("nvim-tree").setup({
 		update_focused_file = {

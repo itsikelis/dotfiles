@@ -4,39 +4,32 @@ local M = {
 }
 
 local function lsp_keymaps(bufnr)
-	local opts = {
-		mode = "n",
-		prefix = "",
-		buffer = bufnr,
-		silent = true,
-		noremap = true,
-		nowait = false,
-		expr = false,
-	}
-
-	local mappings = {
+	require("which-key").register({
 		["<leader>"] = {
 			l = {
-				name = "+Language Server",
-				d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go To Definition" },
 				D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go To Declaration" },
-				h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Open Hover" },
-				i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Go To Implementation" },
-				r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Show References" },
-				f = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Show Diagnostics Float" },
-
 				F = { "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format Document" },
 				I = { "<cmd>LspInfo<cr>", "Lsp Info" },
-
+				R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename Current" },
 				a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+				d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go To Definition" },
+				f = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Show Diagnostics Float" },
+				h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Open Hover" },
+				i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Go To Implementation" },
 				j = { "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", "Go To Next Diagnostic" },
 				k = { "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", "Go To Previous Diagnostic" },
-				R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename Current" },
+				name = "+Language Server",
+				r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Show References" },
 			},
 		},
-	}
-
-	require("which-key").register(mappings, opts)
+		buffer = bufnr,
+		expr = false,
+		mode = "n",
+		noremap = true,
+		nowait = false,
+		prefix = "",
+		silent = true,
+	})
 end
 
 local on_attach = function(_, bufnr)
