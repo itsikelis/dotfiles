@@ -24,7 +24,7 @@ function M.config()
             -- Bash
             formatting.shfmt,
             -- HTML, CSS, JS, Markdown
-            formatting.prettier,
+            -- formatting.prettier,
             -- Extras
             -- null_ls.builtins.completion.spell,
         },
