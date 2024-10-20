@@ -52,15 +52,15 @@ family = "JetBrainsMono Nerd Font Mono"
 style  = "Regular"
 
 [font.bold]
-family = "JetBrainsMono Nerd Font Mono, Bold"
+family = "JetBrainsMono Nerd Font Mono"
 style  = "Bold"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font Mono, Italic"
+family = "JetBrainsMono Nerd Font Mono"
 style  = "Italic"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font Mono, Bold Italic"
+family = "JetBrainsMono Nerd Font Mono"
 style  = "Bold Italic"
 
 [font.glyph_offset]
