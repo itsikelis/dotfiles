@@ -1,0 +1,110 @@
+[env]
+TERM = "alacritty"
+
+[general]
+import = [
+"~/.config/alacritty/themes/alacritty-theme/themes/dark_plus.toml"]
+live_config_reload = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+padding = { x = 2, y = 2 }
+decorations     = "none"
+dynamic_padding = false
+dynamic_title   = true
+opacity         = 1.0
+startup_mode    = "Fullscreen"
+title           = "Alacritty"
+
+[colors.primary]
+background = "#1F1F1F"
+foreground = "#CCCCCC"
+
+[colors.normal]
+black   = "#000000"
+red     = "#d6181b"
+green   = "#6A9955"
+yellow  = "#e4d201"
+blue    = "#569cd6"
+magenta = "#bc3fbc"
+cyan    = "#4EC9B0"
+white   = "#e5e5e5"
+
+[colors.bright]
+black   = "#666666"
+red     = "#ce9178"
+green   = "#b5cea8"
+yellow  = "#DCDCAA"
+blue    = "#9cdcfe"
+magenta = "#d670d6"
+cyan    = "#9cdcfe"
+white   = "#e5e5e5"
+
+[font]
+builtin_box_drawing = false
+size                = 10
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style  = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono, Bold"
+style  = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font Mono, Italic"
+style  = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font Mono, Bold Italic"
+style  = "Bold Italic"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.offset]
+x = 0
+y = 0
+
+[cursor]
+style = { shape = "Block", blinking = "Always" }
+blink_timeout = 0
+unfocused_hollow = true
+
+[mouse]
+hide_when_typing = true
+
+[[keyboard.bindings]]
+action = "Paste"
+key    = "V"
+mods   = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key    = "C"
+mods   = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Quit"
+key    = "D"
+mods   = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key    = "F11"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key    = "Home"
+mods   = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key    = "End"
+mods   = "Control"
+
