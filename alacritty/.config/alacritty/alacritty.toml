@@ -90,9 +90,14 @@ key    = "C"
 mods   = "Control|Shift"
 
 [[keyboard.bindings]]
-action = "Quit"
-key    = "D"
-mods   = "Control"
+action = "SpawnNewInstance"
+key    = "N"
+mods   = "Control|Alt"
+
+# [[keyboard.bindings]]
+# action = "Quit"
+# key    = "D"
+# mods   = "Control"
 
 [[keyboard.bindings]]
 action = "ToggleFullscreen"
