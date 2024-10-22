@@ -24,7 +24,6 @@ spec("plugins.which-key")
 -- Extras
 spec("plugins.autopairs")
 spec("plugins.rainbow-delimiters")
-spec("plugins.comment")
 spec("plugins.gitsigns")
 spec("plugins.undotree")
 
