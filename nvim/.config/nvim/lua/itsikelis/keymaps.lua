@@ -1,6 +1,9 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
+-- Remove ovelappring keymaps (Because which-key does not like gc[motion] and gcc together)
+vim.keymap.del("n", "gc")
+
 -- Shorten function name.
 local keymap = vim.api.nvim_set_keymap
 
