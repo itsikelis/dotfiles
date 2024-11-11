@@ -1,8 +1,0 @@
-\.git
-\.gitignore
-*lazy-lock*
-
-apt_install.sh
-
-^/README.*
-^/LICENSE.*
