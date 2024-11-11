@@ -11,16 +11,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-    spec = LAZY_PLUGIN_SPEC,
-    install = {
-        colorscheme = { "darkplus", "default" },
-    },
+require("lazy").setup("itsikelis.plugins", {
     ui = {
         border = "none",
     },
-    change_detection = {
-        enabled = true,
-        notify = false,
-    },
 })
+
+local foo = 0
