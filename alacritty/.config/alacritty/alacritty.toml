@@ -20,28 +20,40 @@ startup_mode    = "Fullscreen"
 title           = "Alacritty"
 
 [colors.primary]
-background = "#1F1F1F"
-foreground = "#CCCCCC"
+background = '#181616'
+foreground = '#c5c9c5'
 
 [colors.normal]
-black   = "#000000"
-red     = "#d6181b"
-green   = "#6A9955"
-yellow  = "#e4d201"
-blue    = "#569cd6"
-magenta = "#bc3fbc"
-cyan    = "#4EC9B0"
-white   = "#e5e5e5"
+black   = '#0d0c0c'
+red     = '#c4746e'
+green   = '#8a9a7b'
+yellow  = '#c4b28a'
+blue    = '#8ba4b0'
+magenta = '#a292a3'
+cyan    = '#8ea4a2'
+white   = '#C8C093'
 
 [colors.bright]
-black   = "#666666"
-red     = "#ce9178"
-green   = "#b5cea8"
-yellow  = "#DCDCAA"
-blue    = "#9cdcfe"
-magenta = "#d670d6"
-cyan    = "#9cdcfe"
-white   = "#e5e5e5"
+black   = '#a6a69c'
+red     = '#E46876'
+green   = '#87a987'
+yellow  = '#E6C384'
+blue    = '#7FB4CA'
+magenta = '#938AA9'
+cyan    = '#7AA89F'
+white   = '#c5c9c5'
+
+[colors.selection]
+background = '#2D4F67'
+foreground = '#C8C093'
+
+[[colors.indexed_colors]]
+index = 16
+color = '#b6927b'
+
+[[colors.indexed_colors]]
+index = 17
+color = '#b98d7b'
 
 [font]
 builtin_box_drawing = false
@@ -72,8 +84,7 @@ x = 0
 y = 0
 
 [cursor]
-style = { shape = "Block", blinking = "Always" }
-blink_timeout = 0
+style = { shape = "Block" }
 unfocused_hollow = true
 
 [mouse]
