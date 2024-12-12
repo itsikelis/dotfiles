@@ -1,5 +1,8 @@
 [env]
-TERM = "alacritty"
+TERM = "xterm-256color"
+
+[terminal.shell]
+program = "/bin/zsh"
 
 [general]
 import = [
@@ -16,7 +19,7 @@ decorations     = "none"
 dynamic_padding = false
 dynamic_title   = true
 opacity         = 1.0
-startup_mode    = "Fullscreen"
+startup_mode    = "Maximized"
 title           = "Alacritty"
 
 [colors.primary]
@@ -57,7 +60,7 @@ color = '#b98d7b'
 
 [font]
 builtin_box_drawing = false
-size                = 10
+size                = 10 # 10 on gnome, 7 on i3
 
 [font.normal]
 family = "JetBrainsMono Nerd Font Mono"
