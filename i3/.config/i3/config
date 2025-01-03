@@ -1,0 +1,154 @@
+# Variables
+set $mod Mod4
+
+set $ws1 "1: Browser 󰈹"
+set $ws2 "2: Terminals "
+set $ws3 "3: Talk 󰍡"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10: Media 󰝚"
+
+set $bg_unfocused #282727
+set $bg_focused #393836
+set $text_focused #c5c9c5
+set $text_unfocused #737c73
+set $bg_urgent #c4746e
+set $indicator #9bb6c
+
+font pango:JetBrainsMono Nerd Font Mono                                                                 # Set font
+exec --no-startup-id "feh --bg-scale ~/Pictures/Wallpapers/wallpaper.jpg"                               # Set wallpaper
+exec --no-startup-id "xinput set-prop 'VEN_06CB:00 06CB:CEEC Touchpad' 'libinput Tapping Enabled' 1"    # Touchpad support
+exec --no-startup-id "sleep 0.1; setxkbmap -option 'caps:escape'"                                       # Remap caps lock to escape
+exec --no-startup-id "sleep 0.5; setxkbmap -layout us,gr -option 'grp:alt_space_toggle'"                # Alt-Space to change keyboard layout
+exec --no-startup-id "xset r rate 200 35"                                                               # Repeat keys
+exec --no-startup-id "xss-lock --transfer-sleep-lock -- i3lock -c000000 --nofork"                       # Lock the screen before suspend
+exec --no-startup-id "nm-applet"                                                                        # Network manager and statusbar gui
+
+# Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Configure monitor(s)
+exec_always --no-startup-id "xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1-1 --off --output DP-1-1 --off --output DP-1-2 --off"
+gaps inner 3
+
+# Keybindings
+bindsym $mod+Return exec "alacritty"
+bindsym $mod+Shift+q kill
+# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "#282727" -nf "#737c73" -sb "#393836" -sf "#c5c9c5" -fn "JetBrainsMono Nerd Font Mono 10"
+
+# Focus active window
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split next opened window
+bindsym $mod+v split h
+bindsym $mod+s split v
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+x exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit button. Choose the exit action' -B 'Shutdown' 'shutdown now' -B 'Reboot' 'reboot' -B 'Log out' 'i3-msg exit'"
+bindsym $mod+Mod1+l exec --no-startup-id "i3lock -c000000"
+
+bindsym XF86AudioMute exec --no-startup-id "amixer sset 'Master' toggle"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer sset 'Master' 5%+"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer sset 'Master' 5%-"
+
+bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl set +10%"
+bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl set 10%-"
+
+bindsym XF86AudioPlay exec "playerctl play-pause"
+bindsym XF86AudioPause exec "playerctl play-pause"
+bindsym XF86AudioNext exec "playerctl next"
+bindsym XF86AudioPrev exec "playerctl previous"
+
+# Resize mode
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # Return to normal mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# Window Colours
+#                        border         background     text             indicator
+client.focused           $bg_focused    $bg_focused    $text_focused    $indicator
+client.unfocused         $bg_unfocused  $bg_unfocused  $text_unfocused  $indicator
+client.urgent            $bg_urgent  $bg_urgent     $text_unfocused     $indicator
+client.focused_inactive  $bg_unfocused  $bg_unfocused  $text_unfocused  $indicator
+
+hide_edge_borders both
+
+# Bottom status bar
+bar {
+    # status_command i3status
+    tray_output none
+
+    colors {
+      separator $bg_focused
+      background $bg_unfocused
+      statusline $text_focused
+#                         border         background     text
+      focused_workspace   $bg_unfocused  $bg_unfocused  $text_focused
+      urgent_workspace    $bg_urgent     $bg_urgent     $text_unfocused
+      active_workspace    $bg_unfocused  $bg_focused    $text_focused
+      inactive_workspace  $bg_unfocused  $bg_unfocused  $text_unfocused
+    }
+}
+
+# Assign apps to workspaces
+assign [class="firefox"] $ws1
+assign [class="Mail"] $ws3
+assign [class="Mattermost"] $ws3
+assign [class="Telegram"] $ws3
+assign [class="Alacritty"] $ws2
+assign [class="MuJoCo"] $ws4
+assign [class="Rhythmbox"] $ws10
