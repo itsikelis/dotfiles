@@ -1,9 +1,9 @@
 [submodule "zsh/.config/zsh/pure"]
-	path = zsh/.config/zsh/pure
+	path = zsh/.config/zsh/plugins/pure
 	url = https://github.com/sindresorhus/pure.git
 [submodule "zsh/.config/zsh/zsh-autosuggestions"]
-	path = zsh/.config/zsh/zsh-autosuggestions
+	path = zsh/.config/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "zsh/.config/zsh/fzf-tab"]
-	path = zsh/.config/zsh/fzf-tab
+	path = zsh/.config/zsh/plugins/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab

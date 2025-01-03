@@ -60,7 +60,7 @@ color = '#b98d7b'
 
 [font]
 builtin_box_drawing = false
-size                = 10 # 10 on gnome, 7 on i3
+size                = 7.5 # 10 on gnome, 7.5 on i3
 
 [font.normal]
 family = "JetBrainsMono Nerd Font Mono"
