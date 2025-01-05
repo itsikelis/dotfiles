@@ -25,7 +25,7 @@ exec --no-startup-id "xinput set-prop 'VEN_06CB:00 06CB:CEEC Touchpad' 'libinput
 exec --no-startup-id "sleep 0.1; setxkbmap -option 'caps:escape'"                                       # Remap caps lock to escape
 exec --no-startup-id "sleep 0.5; setxkbmap -layout us,gr -option 'grp:alt_space_toggle'"                # Alt-Space to change keyboard layout
 exec --no-startup-id "xset r rate 200 35"                                                               # Repeat keys
-exec --no-startup-id "xss-lock --transfer-sleep-lock -- i3lock -c000000 --nofork"                       # Lock the screen before suspend
+exec --no-startup-id "xss-lock --transfer-sleep-lock -- my-i3lock -c000000 --nofork"                       # Lock the screen before suspend
 exec --no-startup-id "nm-applet"                                                                        # Network manager and statusbar gui
 
 # Mouse+$mod to drag floating windows to their wanted position
@@ -39,7 +39,7 @@ gaps inner 3
 bindsym $mod+Return exec "alacritty"
 bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id dmenu_run -nb "#282727" -nf "#737c73" -sb "#393836" -sf "#c5c9c5" -fn "JetBrainsMono Nerd Font Mono 10"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -nb "#282727" -nf "#737c73" -sb "#393836" -sf "#c5c9c5" -fn "JetBrainsMono Nerd Font Mono 10"'
 
 # Focus active window
 bindsym $mod+h focus left
@@ -85,7 +85,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+x exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit button. Choose the exit action' -B 'Shutdown' 'shutdown now' -B 'Reboot' 'reboot' -B 'Log out' 'i3-msg exit'"
-bindsym $mod+Mod1+l exec --no-startup-id "i3lock -c000000"
+bindsym $mod+Mod1+l exec --no-startup-id "my-i3lock"
 
 bindsym XF86AudioMute exec --no-startup-id "amixer sset 'Master' toggle"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer sset 'Master' 5%+"
