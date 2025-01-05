@@ -1,4 +1,4 @@
-local M = {
+return {
     'lewis6991/gitsigns.nvim',
     event = 'VeryLazy',
     config = function()
@@ -51,5 +51,3 @@ local M = {
         })
     end,
 }
-
-return M
