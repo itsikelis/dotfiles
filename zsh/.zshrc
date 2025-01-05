@@ -43,3 +43,15 @@ alias l='ls -CF'
 # eval "$(fzf --zsh)" # Use fzf for fuzzy searching
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Start ssh agent
+if [ -f ~/.ssh/agent.env ] ; then
+    . ~/.ssh/agent.env > /dev/null
+    if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
+        eval `ssh-agent | tee ~/.ssh/agent.env` > /dev/null
+        ssh-add -q ~/.ssh/github
+    fi
+else
+    eval `ssh-agent | tee ~/.ssh/agent.env` > /dev/null
+    ssh-add -q ~/.ssh/github
+fi
