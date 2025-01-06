@@ -25,7 +25,7 @@ exec --no-startup-id "xinput set-prop 'VEN_06CB:00 06CB:CEEC Touchpad' 'libinput
 exec --no-startup-id "sleep 0.1; setxkbmap -option 'caps:escape'"                                       # Remap caps lock to escape
 exec --no-startup-id "sleep 0.5; setxkbmap -layout us,gr -option 'grp:alt_space_toggle'"                # Alt-Space to change keyboard layout
 exec --no-startup-id "xset r rate 200 35"                                                               # Repeat keys
-exec --no-startup-id "xss-lock --transfer-sleep-lock -- my-i3lock -c000000 --nofork"                       # Lock the screen before suspend
+exec --no-startup-id "xss-lock --transfer-sleep-lock -- my-i3lock -c000000 --nofork"                    # Lock the screen before suspend
 exec --no-startup-id "nm-applet"                                                                        # Network manager and statusbar gui
 
 # Mouse+$mod to drag floating windows to their wanted position
@@ -99,6 +99,8 @@ bindsym XF86AudioPause exec "playerctl play-pause"
 bindsym XF86AudioNext exec "playerctl next"
 bindsym XF86AudioPrev exec "playerctl previous"
 
+bindsym Print exec "flameshot gui"
+
 # Resize mode
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -127,9 +129,20 @@ client.focused_inactive  $bg_unfocused  $bg_unfocused  $text_unfocused  $indicat
 
 hide_edge_borders both
 
+# Assign apps to workspaces
+assign [class="firefox"] $ws1
+assign [class="Mail"] $ws3
+assign [class="Mattermost"] $ws3
+assign [class="Telegram"] $ws3
+assign [class="Alacritty"] $ws2
+assign [class="MuJoCo"] $ws4
+assign [class="Rhythmbox"] $ws10
+
 # Bottom status bar
 bar {
-    # status_command i3status
+    font pango:JetBrainsMono Nerd Font Mono 10
+    position top
+    status_command upower -i $(upower -e | grep 'BAT') | grep -E "percentage"
     tray_output none
 
     colors {
@@ -143,12 +156,3 @@ bar {
       inactive_workspace  $bg_unfocused  $bg_unfocused  $text_unfocused
     }
 }
-
-# Assign apps to workspaces
-assign [class="firefox"] $ws1
-assign [class="Mail"] $ws3
-assign [class="Mattermost"] $ws3
-assign [class="Telegram"] $ws3
-assign [class="Alacritty"] $ws2
-assign [class="MuJoCo"] $ws4
-assign [class="Rhythmbox"] $ws10

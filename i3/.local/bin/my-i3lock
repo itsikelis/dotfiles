@@ -1,5 +1,4 @@
 # Take screenshot of screen and blur it
 scrot /tmp/current.png
 convert -blur 0x4 /tmp/current.png /tmp/lock.png
-
-
+i3lock -i /tmp/lock.png
