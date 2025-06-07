@@ -7,6 +7,7 @@ return {
             ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query', 'cpp', 'python' },
             auto_install = true,
             highlight = { enable = true },
+            disable = { "latex" },
         })
     end,
 }
