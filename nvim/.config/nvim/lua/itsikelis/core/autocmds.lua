@@ -29,3 +29,12 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.opt_local.spell = true
     end,
 })
+
+local latex_group = vim.api.nvim_create_augroup('LatexBuild', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+    group = latex_group,
+    pattern = { 'tex', 'latex' },
+    callback = function()
+        vim.cmd([[!pdflatex -output-directory=build % >/dev/null 2>&1]])
+    end,
+})
