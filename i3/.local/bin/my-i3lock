@@ -1,4 +1,10 @@
 # Take screenshot of screen and blur it
+rm -f /tmp/current.png /tmp/lock.png
 scrot /tmp/current.png
 convert -blur 0x4 /tmp/current.png /tmp/lock.png
-i3lock -i /tmp/lock.png
+i3lock -n -i /tmp/lock.png \
+    --keyhl-color=98BB6CFF --bshl-color=C4746EFF \
+    --insidewrong-color=C4746E00 --ringwrong-color=C4746EFF \
+    --inside-color=00000000 --ring-color=00000000 --separator-color=00000000 \
+    --insidever-color=00000000 --ringver-color=00000000 --line-uses-inside \
+    --verif-text="" --wrong-text="" --noinput-text=""

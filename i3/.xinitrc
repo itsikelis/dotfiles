@@ -1,1 +1,1 @@
-xautolock -time 10 -locker my-i3lock
+xautolock -time 1 -locker slock
