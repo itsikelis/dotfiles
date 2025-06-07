@@ -156,3 +156,4 @@ bar {
       inactive_workspace  $bg_unfocused  $bg_unfocused  $text_unfocused
     }
 }
+

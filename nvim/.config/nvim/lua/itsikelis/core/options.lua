@@ -28,7 +28,7 @@ opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 opt.numberwidth = 2 -- set number column width to 2 {default 4}
 opt.number = true -- set numbered lines
 opt.cursorline = true -- highlight the current line
-opt.relativenumber = false -- set relative numbered lines
+opt.relativenumber = true -- set relative numbered lines
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 opt.scrolloff = 10 -- number of rows to keep above and below the cursor
 opt.sidescrolloff = 10 -- number of columns to keep above and below the cursor
@@ -52,4 +52,5 @@ opt.smartcase = true -- smart case tunrs to case sensitive if mixed case is dete
 vim.opt.shortmess:append("cI") -- c: don't give ins-completion-menu messages, I: don't give the intro message when starting Vim
 
 -- local icons = require("itsikelis.core.icons")
+-- vim.cmd('set list listchars=multispace:\\ \\ \\ \\' .. icons.ui.LineIndentDotted)
 -- vim.cmd('set list listchars=multispace:\\ \\ \\ \\' .. icons.ui.LineIndentDotted .. ',eol:' .. icons.ui.ArrowDownLeft)
