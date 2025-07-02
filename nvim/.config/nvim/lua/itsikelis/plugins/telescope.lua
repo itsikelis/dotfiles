@@ -32,6 +32,21 @@ return {
                     },
                 },
             },
+            pickers = {
+            	find_files = {
+            		find_command = {
+            			"rg",
+            			"--files",
+            			"--hidden",
+            			"-g",
+            			"!.git",
+            		},
+            		follow = true,
+            	},
+            	lsp_document_symbols = {
+            		show_line = true,
+            	},
+            },
         })
 
         telescope.load_extension('fzf')

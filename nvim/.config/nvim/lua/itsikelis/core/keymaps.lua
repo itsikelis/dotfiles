@@ -20,12 +20,6 @@ vim.g.maplocalleader = ' '
 -------------------
 --- Normal Mode ---
 -------------------
--- Better window navigation.
-vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Focus left window', noremap = true, silent = true })
-vim.keymap.set('n', '<leader>wj', '<C-w>j', { desc = 'Focus lower window', noremap = true, silent = true })
-vim.keymap.set('n', '<leader>wk', '<C-w>k', { desc = 'Focus upper window', noremap = true, silent = true })
-vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = 'Focus right window', noremap = true, silent = true })
-
 -- Buffers
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = 'Close buffer', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Next buffer', noremap = true, silent = true })
@@ -37,11 +31,17 @@ vim.keymap.set('n', '<A-Down>', ':resize +2<CR>', { noremap = true, silent = tru
 vim.keymap.set('n', '<A-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
 
+-- Better window navigation.
+-- vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Focus left window', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>wj', '<C-w>j', { desc = 'Focus lower window', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>wk', '<C-w>k', { desc = 'Focus upper window', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = 'Focus right window', noremap = true, silent = true })
+
 -- Window management
-vim.keymap.set('n', '<leader>wv', '<C-w>v<CR>', { desc = 'Split window vertically', noremap = true, silent = true })
-vim.keymap.set('n', '<leader>ws', '<C-w>s<CR>', { desc = 'Split window horizontally', noremap = true, silent = true })
-vim.keymap.set('n', '<leader>w=', '<C-w>=<CR>', { desc = 'Make splits equal size', noremap = true, silent = true })
-vim.keymap.set('n', '<leader>wq', '<C-w>q<CR>', { desc = 'Quit current window', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>wv', '<C-w>v<CR>', { desc = 'Split window vertically', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>ws', '<C-w>s<CR>', { desc = 'Split window horizontally', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>w=', '<C-w>=<CR>', { desc = 'Make splits equal size', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>wq', '<C-w>q<CR>', { desc = 'Quit current window', noremap = true, silent = true })
 
 -- Stop highlighting searched text when <ESC> is pressed.
 vim.keymap.set('n', '<ESC>', ':noh<CR>:<C-u>stopinsert<CR>', { noremap = true, silent = true })
