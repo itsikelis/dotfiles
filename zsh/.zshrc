@@ -25,6 +25,7 @@ source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fpath=(path/to/zsh-completions/src $fpath)
 
 # Completion
+zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
@@ -37,21 +38,17 @@ alias c='clear'
 # ls aliases
 alias ls='ls --color=auto'
 alias ll='ls -alF'
-alias la='ls -A'
 alias l='ls -CF'
+alias la='ls -ACF'
 
 # eval "$(fzf --zsh)" # Use fzf for fuzzy searching
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Start ssh agent
-if [ -f ~/.ssh/agent.env ] ; then
-    . ~/.ssh/agent.env > /dev/null
-    if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
-        eval `ssh-agent | tee ~/.ssh/agent.env` > /dev/null
-        ssh-add -q ~/.ssh/github
-    fi
-else
-    eval `ssh-agent | tee ~/.ssh/agent.env` > /dev/null
-    ssh-add -q ~/.ssh/github
-fi
+source /opt/ros/jazzy/setup.zsh
+eval "$(register-python-argcomplete ros2)"
+eval "$(register-python-argcomplete colcon)"
+
+eval "$(ssh-agent -s)" > /dev/null
+ssh-add ~/.ssh/github 2> /dev/null
+
