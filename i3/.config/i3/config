@@ -139,8 +139,12 @@ assign [class="Mattermost"] $ws3
 assign [class="Telegram"] $ws3
 assign [class="whatsapp-linux-app"] $ws3
 assign [class="Rhythmbox"] $ws3
+assign [class="rviz2"] $ws4
+assign [class="gz-sim-gui"] $ws4
+assign [class="Gazebo GUI"] $ws4
 assign [class="MuJoCo"] $ws4
 assign [class="Rhythmbox"] $ws10
+
 
 # Bottom status bar
 bar {
