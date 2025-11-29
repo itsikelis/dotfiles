@@ -34,10 +34,13 @@ sudo apt -y install build-essential \
                     fd
 
 # Clone the neovim repo
-git clone https://github.com/neovim/neovim ~/Apps/neovim && cd ~/Apps/neovim
+git clone https://github.com/neovim/neovim ~/Apps/neovim
+cd ~/Apps/neovim
+git pull
 make CMAKE_BUILD_TYPE=Release
 sudo make install
 
+cd -
 stow nvim
 
 ## ALACRITTY ##
@@ -46,7 +49,9 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh && . "$HOME/.carg
 sudo pacman -S cmake freetype2 fontconfig pkg-config make libxcb libxkbcommon python
 
 # Install Alacritty terminal emulator
-git clone https://github.com/alacritty/alacritty.git ~/Apps/alacritty && cd ~/Apps/alacritty
+git clone https://github.com/alacritty/alacritty.git ~/Apps/alacritty
+cd ~/Apps/alacritty
+git pull
 cargo build --release
 sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
 
@@ -67,6 +72,7 @@ sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
 sudo desktop-file-install extra/linux/Alacritty.desktop
 sudo update-desktop-database
 
+cd -
 stow alacritty
 
 ## TMUX ##
