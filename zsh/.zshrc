@@ -1,7 +1,11 @@
-fpath+=($HOME/.config/zsh/pure)
+fpath+=($HOME/.config/zsh/plugins/pure)
 
 autoload -U promptinit; promptinit
 prompt pure
+
+# Locale
+export LC_CTYPE=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
 
 # history
 export HISTFILE=$HOME/.zsh_history
@@ -20,18 +24,18 @@ setopt hist_find_no_dups
 bindkey '^j' history-search-forward
 bindkey '^k' history-search-backward
 
-# source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fpath=(path/to/zsh-completions/src $fpath)
+source ~/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fpath+=($HOME/.config/zsh/plugins/zsh-completions/src)
 
 # Completion
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+autoload -Uz compinit && compinit
 
-# zstyle ':completion:*' menu no
-# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 alias c='clear'
 
@@ -41,7 +45,10 @@ alias ll='ls -alF'
 alias l='ls -CF'
 alias la='ls -ACF'
 
-# eval "$(fzf --zsh)" # Use fzf for fuzzy searching
+# vi alias
+alias vi='nvim'
+
+eval "$(fzf --zsh)" # Use fzf for fuzzy searching
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -49,6 +56,5 @@ source /opt/ros/jazzy/setup.zsh
 eval "$(register-python-argcomplete ros2)"
 eval "$(register-python-argcomplete colcon)"
 
-eval "$(ssh-agent -s)" > /dev/null
 ssh-add ~/.ssh/github 2> /dev/null
 
