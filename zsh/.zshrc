@@ -52,9 +52,5 @@ eval "$(fzf --zsh)" # Use fzf for fuzzy searching
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /opt/ros/jazzy/setup.zsh
-eval "$(register-python-argcomplete ros2)"
-eval "$(register-python-argcomplete colcon)"
-
+eval "$(ssh-agent -s)" > /dev/null
 ssh-add ~/.ssh/github 2> /dev/null
-
