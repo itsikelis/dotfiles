@@ -1,16 +1,17 @@
 #!/bin/bash
 
 echo "--- Upgrading system ---"
-sudo apt -y update
-sudo apt -y upgrade
+sudo pacman -Syu --noconfirm
 
 # Install stow
-sudo apt -y install stow
+sudo pacman -S --noconfirm stow
 
 # Fonts
+clear
 echo "--- Setting up fonts ---"
 stow fonts
 
+clear
 echo "--- Setting up terminal emulator ---"
 # Clone source
 git clone https://github.com/alacritty/alacritty.git
@@ -20,7 +21,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup override set stable
 rustup update stable
 # Package deps
-sudo apt -y install cmake g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+pacman -S --noconfirm cmake freetype2 fontconfig pkg-config make libxcb libxkbcommon python
 # Build
 cargo build --release
 # Install desktop entries
@@ -32,26 +33,27 @@ sudo update-desktop-database
 cd -
 stow alacritty
 
+clear
 echo "--- Setting up shell ---"
 # Install package
-sudo apt -y install zsh
+sudo pacman -S --noconfirm zsh
 # Add plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-completions.git ~/.config/zsh/plugins/zsh-completions
 git clone https://github.com/sindresorhus/pure.git ~/.config/zsh/plugins/pure
-
+# Stow config files
 stow zsh
 
 echo "--- Setting up tmux ---"
-sudo apt -y install tmux
+sudo pacman -S --noconfirm tmux
 stow tmux
 
 echo "--- Setting up neovim ---"
 # Install dependencies
-sudo apt -y install build-essential cmake ninja-build clang-format black luarocks ripgrep fzf clang ripgrep fd
+sudo pacman -S --noconfirm base-devel cmake ninja curl git clang python-black luarocks ripgrep fzf fd
 # Clone source
-git clone https://github.com/neovim/neovim /opt/neovim
-cd /opt/neovim
+git clone https://github.com/neovim/neovim ~/Apps/neovim
+cd ~/Apps/neovim
 git pull
 # Build and install source
 make CMAKE_BUILD_TYPE=Release
@@ -59,3 +61,5 @@ sudo make install
 # Stow config files
 cd -
 stow nvim
+
+echo "--- Done setting up! ---"
