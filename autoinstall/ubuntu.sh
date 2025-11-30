@@ -50,8 +50,8 @@ echo "--- Setting up neovim ---"
 # Install dependencies
 sudo apt -y install build-essential cmake ninja-build clang-format black luarocks ripgrep fzf clang ripgrep fd
 # Clone source
-git clone https://github.com/neovim/neovim /opt/neovim
-cd /opt/neovim
+git clone https://github.com/neovim/neovim ~/Apps/neovim
+cd ~/Apps/neovim
 git pull
 # Build and install source
 make CMAKE_BUILD_TYPE=Release
@@ -59,3 +59,5 @@ sudo make install
 # Stow config files
 cd -
 stow nvim
+
+echo "--- Done setting up! ---"
