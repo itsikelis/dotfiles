@@ -54,5 +54,6 @@ eval "$(fzf --zsh)" # Use fzf for fuzzy searching
 
 eval "$(ssh-agent -s)" > /dev/null
 ssh-add ~/.ssh/github 2> /dev/null
+ssh-add ~/.ssh/gitlab 2> /dev/null
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
