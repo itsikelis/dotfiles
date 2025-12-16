@@ -13,8 +13,8 @@ stow fonts
 
 echo "--- Setting up terminal emulator ---"
 # Clone source
-git clone https://github.com/alacritty/alacritty.git
-cd alacritty
+git clone https://github.com/alacritty/alacritty.git ~/Apps/alacritty
+cd ~/Apps/alacritty
 # Install Rust compiler
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup override set stable
