@@ -48,7 +48,7 @@ stow tmux
 
 echo "--- Setting up neovim ---"
 # Install dependencies
-sudo apt -y install build-essential cmake ninja-build clang-format black luarocks ripgrep fzf clang ripgrep fd
+sudo apt -y install build-essential cmake ninja-build clang-format black luarocks ripgrep fzf clang ripgrep fd-find
 # Clone source
 git clone https://github.com/neovim/neovim ~/Apps/neovim
 cd ~/Apps/neovim
