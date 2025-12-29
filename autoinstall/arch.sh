@@ -3,13 +3,27 @@
 echo "--- Upgrading system ---"
 sudo pacman -Syu --noconfirm
 
+echo "--- Updating grub configuration ---"
+# Make the login prompt cleaner
+sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 rd.systemd.show_status=auto rd.udev.log_priority=3"/' /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
 # Install stow
 sudo pacman -S --noconfirm stow
 
-# Fonts
 clear
 echo "--- Setting up fonts ---"
 stow fonts
+
+clear
+echo "--- Setting up window manager ---"
+git clone --recursive https://github.com/hyprwm/Hyprland ~/Apps/Hyprland
+cd ~/Apps/Hyprland
+sudo pacman -S --noconfirm muparser hyprwire hyprpolkitagent hyprpaper dunst hyprlauncher xdg-desktop-portal-hyprland waybar wl-roots0.19
+make all && sudo make install
+# Stow config files
+cd -
+stow hyprland
 
 clear
 echo "--- Setting up terminal emulator ---"
