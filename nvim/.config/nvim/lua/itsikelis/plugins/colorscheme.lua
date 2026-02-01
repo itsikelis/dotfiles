@@ -4,6 +4,7 @@ return {
     priority = 1000,
     config = function()
         require('kanagawa').setup({
+            transparent = true,
             colors = { theme = { all = { ui = { bg_gutter = 'none' } } } },
             overrides = function(colors)
                 local theme = colors.theme
@@ -17,5 +18,6 @@ return {
         })
 
         vim.cmd.colorscheme('kanagawa-dragon')
+        vim.api.nvim_set_hl(0, "MsgArea", { bg = "#0D0C0C" })
     end,
 }

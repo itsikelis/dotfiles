@@ -3,10 +3,6 @@ fpath+=($HOME/.config/zsh/plugins/pure)
 autoload -U promptinit; promptinit
 prompt pure
 
-# Locale
-export LC_CTYPE=en_GB.UTF-8
-export LC_ALL=en_GB.UTF-8
-
 # history
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=5000
@@ -57,3 +53,11 @@ ssh-add ~/.ssh/github 2> /dev/null
 ssh-add ~/.ssh/gitlab 2> /dev/null
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# Keyboard delays
+# TODO: Add these in .zshprofile
+REPEAT_INTERVAL=25
+DELAY=200
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval $REPEAT_INTERVAL
+gsettings set org.gnome.desktop.peripherals.keyboard delay $DELAY
+gsettings set org.gnome.desktop.input-sources xkb-options \[\'caps:escape\'\]

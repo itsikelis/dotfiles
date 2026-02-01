@@ -1,0 +1,32 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrains Mono Regular";
+    font-size: 11px;
+    padding: 0 2px;
+}
+
+window#waybar {
+    background-color: rgba(0.0, 0.0, 0.0, 0.5);
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* #clock, */
+/* #battery, */
+/* #cpu, */
+/* #memory, */
+/* #disk, */
+/* #temperature, */
+/* #backlight, */
+/* #network, */
+/* #pulseaudio, */
+/* #wireplumber, */
+/* #custom-media, */
+/* #tray, */
+/* #mode, */
+/* #idle_inhibitor, */
+/* #scratchpad, */
+/* #power-profiles-daemon, */
+/* #mpd { */
+/* } */

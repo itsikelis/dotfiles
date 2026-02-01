@@ -19,11 +19,18 @@ clear
 echo "--- Setting up window manager ---"
 git clone --recursive https://github.com/hyprwm/Hyprland ~/Apps/Hyprland
 cd ~/Apps/Hyprland
-sudo pacman -S --noconfirm muparser hyprwire hyprpolkitagent hyprpaper dunst hyprlauncher xdg-desktop-portal-hyprland waybar wl-roots0.19
+sudo pacman -S --noconfirm muparser hyprwire hyprpolkitagent hyprpaper dunst hyprlauncher xdg-desktop-portal-hyprland waybar wl-roots0.19 brightnessctl
 make all && sudo make install
 # Stow config files
 cd -
 stow hyprland
+
+clear
+echo "--- Setting up status bar ---"
+sudo pacman -S --noconfirm waybar
+# Stow config files
+cd -
+stow waybar
 
 clear
 echo "--- Setting up terminal emulator ---"
@@ -64,7 +71,8 @@ stow tmux
 
 echo "--- Setting up neovim ---"
 # Install dependencies
-sudo pacman -S --noconfirm base-devel cmake ninja curl git clang python-black luarocks ripgrep fzf fd
+sudo pacman -S --noconfirm base-devel cmake ninja curl git clang python-black luarocks ripgrep fzf fd nodejs npm
+npm install --save-dev --save-exact prettier
 # Clone source
 git clone https://github.com/neovim/neovim ~/Apps/neovim
 cd ~/Apps/neovim
