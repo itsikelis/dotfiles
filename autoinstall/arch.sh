@@ -17,17 +17,14 @@ stow fonts
 
 clear
 echo "--- Setting up window manager ---"
-git clone --recursive https://github.com/hyprwm/Hyprland ~/Apps/Hyprland
-cd ~/Apps/Hyprland
 sudo pacman -S --noconfirm muparser hyprwire hyprpolkitagent hyprpaper dunst hyprlauncher xdg-desktop-portal-hyprland waybar wl-roots0.19 brightnessctl
-make all && sudo make install
-# Stow config files
-cd -
+sudo pacman -S --noconfirm hyprland
 stow hyprland
 
 clear
 echo "--- Setting up status bar ---"
 sudo pacman -S --noconfirm waybar
+curl -fsSL https://vicinae.com/install | sh
 # Stow config files
 cd -
 stow waybar
