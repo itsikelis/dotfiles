@@ -200,3 +200,10 @@ Enable and start the time synchronization service
 ```bash
 timedatectl set-ntp true
 ```
+
+Install and start the reflector service (for efficient mirrolist updates)
+```bash
+sudo pacman -S reflector
+sudo systemclt enable reflector.service
+sudo systemctl start reflector.service
+```
