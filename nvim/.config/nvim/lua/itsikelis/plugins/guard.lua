@@ -10,6 +10,7 @@ return {
         ft('lua'):fmt('stylua')
         ft('python'):fmt('black')
         ft('html'):fmt('prettier')
+        ft('css'):fmt('prettier')
         vim.g.guard_config = {
             fmt_on_save = true,
             lsp_as_default_formatter = false,
